@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SidMarkting Products | Afiliado de Produtos Físicos</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Barra de ferramentas (contínua) */
+    .barra-ferramentas {
+      background: #2a2a2a;
+      padding: 8px 0;
+      overflow: hidden;
+    }
+    .barra-ferramentas div {
+      display: inline-block;
+      animation: scroll 50s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Cabeçalho */
+    .header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #0d0d0d;
+    }
+    .header img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .header h1 {
+      font-size: 2.8rem;
+      margin: 20px 0 10px;
+      font-weight: 800;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Termo de responsabilidade */
+    .termo {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #aaa;
+      background: #121212;
+      border-top: 1px solid #333;
+    }
+
+    /* Grid de produtos */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: #000;
+      border: 1px solid #ff0000;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .product-card:hover {
+      box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.6);
+      transform: translateY(-4px);
+    }
+
+    .product-img {
+      height: 280px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .product-info p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+    .product-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #00C853;
+      margin-bottom: 20px;
+    }
+
+    /* Botões */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-comprar {
+      background: #ff0000;
+      color: white;
+      margin-bottom: 12px;
+    }
+    .btn-comprar:hover {
+      background: #cc0000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+    }
+    .btn-compartilhar {
+      background: #333;
+      color: #fff;
+      border: 1px solid #555;
+    }
+    .btn-compartilhar:hover {
+      background: #444;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #0d0d0d;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .header h1 { font-size: 2.2rem; }
+      .product-card { margin: 0 auto; max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <div class="header">
+    <img src="/loja.gif" alt="Sidnei na loja de produtos SidMarkting">
+    <h1>SIDMARKTING PRODUCTS</h1>
+    <p>MARKTING DE AFILIADO</p>
+  </div>
+
+  <!-- Termo de responsabilidade -->
+  <div class="termo">
+    Este site é um afiliado de produtos físicos. A responsabilidade pela qualidade, garantia e entrega dos produtos é do produtor. Nossa função é apresentar produtos que resolvem problemas reais.
+  </div>
+
+  <!-- Barra de ferramentas (contínua) -->
+  <div class="barra-ferramentas">
+    <div>
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" style="margin-right:20px;">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" style="margin-right:20px;">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" style="margin-right:20px;">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" style="margin-right:20px;">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" style="margin-right:20px;">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" style="margin-right:20px;">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" style="margin-right:20px;">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" style="margin-right:20px;">
+    </div>
+  </div>
+
+  <!-- Produtos -->
+  <div class="products-grid">
+    <!-- Produto 1 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p1-durasul.png" alt="Durasul">
+      </div>
+      <div class="product-info">
+        <h3>Durasul</h3>
+        <p>Suplemento para energia e foco.</p>
+        <div class="product-price">R$ 69,90</div>
+        <a href="https://app.monetizze.com.br/r/ARN25765645" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Durasul', 'R$ 69,90', 'https://app.monetizze.com.br/r/ARN25765645')">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Produto 2 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p2-morovitta.png" alt="Moro Vitta">
+      </div>
+      <div class="product-info">
+        <h3>Moro Vitta</h3>
+        <p>Vitamina D3 + K2 para imunidade.</p>
+        <div class="product-price">R$ 59,90</div>
+        <a href="https://www.makepages.com.br/r/AUZ25769534" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Moro Vitta', 'R$ 59,90', 'https://www.makepages.com.br/r/AUZ25769534')">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Produto 3 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p3-nutravida.png" alt="Nutra Vida">
+      </div>
+      <div class="product-info">
+        <h3>Nutra Vida</h3>
+        <p>Colágeno hidrolisado com vitamina C.</p>
+        <div class="product-price">R$ 49,90</div>
+        <a href="https://www.makepages.com.br/r/AWY25769512" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Nutra Vida', 'R$ 49,90', 'https://www.makepages.com.br/r/AWY25769512')">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Produto 4 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p4-dreamcolageno.png" alt="Dream Colageno">
+      </div>
+      <div class="product-info">
+        <h3>Dream Colageno</h3>
+        <p>Colágeno marinho + ácido hialurônico.</p>
+        <div class="product-price">R$ 79,90</div>
+        <a href="https://www.makepages.com.br/r/AAV25769391" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Dream Colageno', 'R$ 79,90', 'https://www.makepages.com.br/r/AAV25769391')">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Produto 5 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p5-moujasim.png" alt="Mouja Sim">
+      </div>
+      <div class="product-info">
+        <h3>Mouja Sim</h3>
+        <p>Termogênico natural para emagrecimento.</p>
+        <div class="product-price">R$ 39,90</div>
+        <a href="https://www.makepages.com.br/r/ADE25765870" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Mouja Sim', 'R$ 39,90', 'https://www.makepages.com.br/r/ADE25765870')">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Produto 6 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p6-memorizen.png" alt="Memorizen">
+      </div>
+      <div class="product-info">
+        <h3>Memorizen</h3>
+        <p>L-Tirosina + CAFEÍNA para foco.</p>
+        <div class="product-price">R$ 89,90</div>
+        <a href="https://www.makepages.com.br/r/APC25766093" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Memorizen', 'R$ 89,90', 'https://www.makepages.com.br/r/APC25766093')">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Produto 7 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p7-libidintense.png" alt="Libid Intense">
+      </div>
+      <div class="product-info">
+        <h3>Libid Intense</h3>
+        <p>Estimulante natural para desempenho.</p>
+        <div class="product-price">R$ 64,90</div>
+        <a href="https://app.monetizze.com.br/r/ARQ25766636" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Libid Intense', 'R$ 64,90', 'https://app.monetizze.com.br/r/ARQ25766636')">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Produto 8 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p8-ghcoffee.png" alt="GH Coffee">
+      </div>
+      <div class="product-info">
+        <h3>GH Coffee</h3>
+        <p>Café verde + Garcinia para energia.</p>
+        <div class="product-price">R$ 44,90</div>
+        <a href="https://app.monetizze.com.br/r/AHF25766174" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('GH Coffee', 'R$ 44,90', 'https://app.monetizze.com.br/r/AHF25766174')">Compartilhar</button>
+      </div>
+    </div>
+
+    <!-- Produto 9 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/p9-nutralfit.png" alt="Nutral Fit">
+      </div>
+      <div class="product-info">
+        <h3>Nutral Fit</h3>
+        <p>Kit completo para saúde intestinal.</p>
+        <div class="product-price">R$ 99,90</div>
+        <a href="https://app.monetizze.com.br/r/AMK25766629" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Nutral Fit', 'R$ 99,90', 'https://app.monetizze.com.br/r/AMK25766629')">Compartilhar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    © 2026 SidMarkting. Todos os direitos reservados.  
+    <div style="margin-top: 10px;">
+      <a href="https://www.instagram.com/syd.shapper/" target="_blank" style="color:#00C853; margin:0 12px;">Instagram</a>
+      <a href="https://wa.me/5521988663114" target="_blank" style="color:#00C853; margin:0 12px;">WhatsApp</a>
+    </div>
+  </footer>
+
+  <!-- Compartilhamento -->
+  <script>
+    function shareProduct(name, price, url) {
+      const text = `Olá! Encontrei esse produto: ${name} — ${price}. Vale a pena! 👉 ${url}`;
+      if (navigator.share) {
+        navigator.share({ title: name, text, url });
+      } else {
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+      }
+    }
+  </script>
+</body>
+          </html>
