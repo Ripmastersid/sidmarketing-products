@@ -311,14 +311,22 @@
 
   <!-- Compartilhamento -->
   <script>
-    function shareProduct(name, price, url) {
-      const text = `Olá! Encontrei esse produto: ${name} — ${price}. Vale a pena! 👉 ${url}`;
-      if (navigator.share) {
-        navigator.share({ title: name, text, url });
-      } else {
-        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-      }
+  function shareProduct(name, price, siteUrl) {
+    const text = `Olá! Encontrei este produto: ${name} — ${price}. Vale a pena!`;
+    
+    if (navigator.share) {
+      // Só o siteUrl vai como link — NÃO entra no texto
+      navigator.share({
+        title: name,
+        text: text,
+        url: siteUrl
+      });
+    } else {
+      // Para WhatsApp: só o texto (sem URL duplicada)
+      const encodedText = encodeURIComponent(text);
+      window.open(`https://wa.me/?text=${encodedText}`, '_blank');
     }
+  }
   </script>
 </body>
 </html>
