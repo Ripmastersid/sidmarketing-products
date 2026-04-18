@@ -353,5 +353,21 @@
       <a href="https://wa.me/5521988663114" target="_blank" style="color:#00C853; margin:0 12px;">WhatsApp</a>
     </div>
   </footer>
+
+  <!-- ✅ SCRIPT DE SCROLL AUTOMÁTICO (NOVO) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const product = params.get('product');
+      if (product) {
+        const el = document.getElementById(product);
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    });
+  </script>
 </body>
 </html>
