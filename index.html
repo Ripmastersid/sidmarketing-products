@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SidMarkting Products | Afiliado de Produtos Físicos</title>
 
-  <!-- Meta tags padrão (serão atualizadas pelo JS) -->
+  <!-- Meta tags padrão (serão atualizadas pelo JS se ?product= existir) -->
   <meta property="og:url" content="https://sidmarketing-products.vercel.app/" />
   <meta property="og:title" content="SidMarkting Products | Afiliado de Produtos Físicos" />
   <meta property="og:description" content="Produtos físicos com qualidade comprovada. Preços reais, sem enganação." />
@@ -166,35 +166,46 @@
     }
   </style>
 
-  
+  <script>
+    // Atualiza meta tags se ?product=p1, p2, etc.
+    document.addEventListener('DOMContentLoaded', () => {
+      const url = new URL(window.location);
+      const product = url.searchParams.get('product');
+
+      if (!product) return;
+
+      const map = {
+        'p1': { title: 'Durasul', image: '/P1-durasul.png' },
+        'p2': { title: 'Moro Vitta', image: '/P10-morovitta.png' },
+        'p3': { title: 'Nutra Vida', image: '/P3-nutravida.png' },
+        'p4': { title: 'Dream Colageno', image: '/P4-dreamcolageno.png' },
+        'p5': { title: 'Mouja Slim', image: '/P5-moujaslim.png' }, // ✅ Corrigido!
+        'p6': { title: 'Memorizen', image: '/P6-memorizen.png' },
+        'p7': { title: 'Libid Intense', image: '/P7-libidintense.png' },
+        'p8': { title: 'GH Coffee', image: '/P8-ghcoffee.png' },
+        'p9': { title: 'Nutral Fit', image: '/P9-nutralfit.png' }
+      };
+
+      const data = map[product] || map['p1'];
+      document.title = `${data.title} | SidMarkting Products`;
+
+      document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
+      document.querySelector('meta[property="og:image"]').setAttribute('content', data.image);
+      document.querySelector('meta[name="twitter:title"]').setAttribute('content', data.title);
+      document.querySelector('meta[name="twitter:image"]').setAttribute('content', data.image);
+    });
+
+    function shareProduct(name, price, url) {
+      const text = `Olá! Encontrei este produto: ${name} — ${price}. Vale a pena!`;
+      if (navigator.share) {
+        navigator.share({ title: name, text, url });
+      } else {
+        const encodedText = encodeURIComponent(text);
+        window.open(`https://wa.me/?text=${encodedText}`, '_blank');
+      }
+    }
   </script>
-</head><script>
-  // Pega o parâmetro ?product= da URL
-  const params = new URLSearchParams(window.location.search);
-  const product = params.get('product');
-
-  if (product) {
-    const map = {
-      'p1': { title: 'Durasul', image: '/P1-durasul.png' },
-      'p2': { title: 'Moro Vitta', image: '/P10-morovitta.png' },
-      'p3': { title: 'Nutra Vida', image: '/P3-nutravida.png' },
-      'p4': { title: 'Dream Colageno', image: '/P4-dreamcolageno.png' },
-      'p5': { title: 'Mouja Slim', image: '/P5-moujaslim.png' },
-      'p6': { title: 'Memorizen', image: '/P6-memorizen.png' },
-      'p7': { title: 'Libid Intense', image: '/P7-libidintense.png' },
-      'p8': { title: 'GH Coffee', image: '/P8-ghcoffee.png' },
-      'p9': { title: 'Nutral Fit', image: '/P9-nutralfit.png' }
-    };
-
-    const data = map[product] || map['p1'];
-
-    document.title = `${data.title} | SidMarkting Products`;
-    document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
-    document.querySelector('meta[property="og:image"]').setAttribute('content', data.image);
-    document.querySelector('meta[name="twitter:title"]').setAttribute('content', data.title);
-    document.querySelector('meta[name="twitter:image"]').setAttribute('content', data.image);
-  }
-</script>
+</head>
 <body>
 
   <div class="header">
@@ -218,7 +229,7 @@
         <p>Suplemento para energia e foco.</p>
         <div class="product-price">R$ 167,00</div>
         <a href="https://app.monetizze.com.br/r/ARN25765645" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Durasul', 'R$ 167,00', 'https://sidmarketing-products.vercel.app/#p1')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Durasul', 'R$ 167,00', 'https://sidmarketing-products.vercel.app/?product=p1')">Compartilhar</button>
       </div>
     </div>
 
@@ -232,7 +243,7 @@
         <p>Vitamina D3 + K2 para imunidade.</p>
         <div class="product-price">R$ 227,00</div>
         <a href="https://www.makepages.com.br/r/AUZ25769534" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Moro Vitta', 'R$ 227,00', 'https://sidmarketing-products.vercel.app/#p2')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Moro Vitta', 'R$ 227,00', 'https://sidmarketing-products.vercel.app/?product=p2')">Compartilhar</button>
       </div>
     </div>
 
@@ -246,7 +257,7 @@
         <p>Colágeno hidrolisado com vitamina C.</p>
         <div class="product-price">R$ 49,90</div>
         <a href="https://www.makepages.com.br/r/AWY25769512" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Nutra Vida', 'R$ 49,90', 'https://sidmarketing-products.vercel.app/#p3')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Nutra Vida', 'R$ 49,90', 'https://sidmarketing-products.vercel.app/?product=p3')">Compartilhar</button>
       </div>
     </div>
 
@@ -260,21 +271,21 @@
         <p>Colágeno marinho + ácido hialurônico.</p>
         <div class="product-price">R$ 79,90</div>
         <a href="https://www.makepages.com.br/r/AAV25769391" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Dream Colageno', 'R$ 79,90', 'https://sidmarketing-products.vercel.app/#p4')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Dream Colageno', 'R$ 79,90', 'https://sidmarketing-products.vercel.app/?product=p4')">Compartilhar</button>
       </div>
     </div>
 
-    <!-- Produto 5 -->
+    <!-- Produto 5 — CORRIGIDO -->
     <div class="product-card" id="p5">
       <div class="product-img">
-        <img src="/P5-moujasim.png" alt="Mouja Sim">
+        <img src="/P5-moujaslim.png" alt="Mouja Slim">
       </div>
       <div class="product-info">
-        <h3>Mouja Sim</h3>
+        <h3>Mouja Slim</h3>
         <p>Termogênico natural para emagrecimento.</p>
         <div class="product-price">R$ 39,90</div>
         <a href="https://www.makepages.com.br/r/ADE25765870" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Mouja Sim', 'R$ 39,90', 'https://sidmarketing-products.vercel.app/#p5')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Mouja Slim', 'R$ 39,90', 'https://sidmarketing-products.vercel.app/?product=p5')">Compartilhar</button>
       </div>
     </div>
 
@@ -288,7 +299,7 @@
         <p>L-Tirosina + CAFEÍNA para foco.</p>
         <div class="product-price">R$ 89,90</div>
         <a href="https://www.makepages.com.br/r/APC25766093" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Memorizen', 'R$ 89,90', 'https://sidmarketing-products.vercel.app/#p6')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Memorizen', 'R$ 89,90', 'https://sidmarketing-products.vercel.app/?product=p6')">Compartilhar</button>
       </div>
     </div>
 
@@ -302,7 +313,7 @@
         <p>Estimulante natural para desempenho.</p>
         <div class="product-price">R$ 64,90</div>
         <a href="https://app.monetizze.com.br/r/ARQ25766636" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Libid Intense', 'R$ 64,90', 'https://sidmarketing-products.vercel.app/#p7')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Libid Intense', 'R$ 64,90', 'https://sidmarketing-products.vercel.app/?product=p7')">Compartilhar</button>
       </div>
     </div>
 
@@ -316,7 +327,7 @@
         <p>Café verde + Garcinia para energia.</p>
         <div class="product-price">R$ 44,90</div>
         <a href="https://app.monetizze.com.br/r/AHF25766174" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('GH Coffee', 'R$ 44,90', 'https://sidmarketing-products.vercel.app/#p8')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('GH Coffee', 'R$ 44,90', 'https://sidmarketing-products.vercel.app/?product=p8')">Compartilhar</button>
       </div>
     </div>
 
@@ -330,7 +341,7 @@
         <p>Kit completo para saúde intestinal.</p>
         <div class="product-price">R$ 99,90</div>
         <a href="https://app.monetizze.com.br/r/AMK25766629" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Nutral Fit', 'R$ 99,90', 'https://sidmarketing-products.vercel.app/#p9')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Nutral Fit', 'R$ 99,90', 'https://sidmarketing-products.vercel.app/?product=p9')">Compartilhar</button>
       </div>
     </div>
   </div>
