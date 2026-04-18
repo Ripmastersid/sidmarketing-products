@@ -1,56 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <head>.header img {
-  display: block;
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  margin: 0 auto;
-  vertical-align: middle;
-}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SidMarkting Products | Afiliado de Produtos Físicos</title>
 
+  <!-- Meta tags para redes sociais -->
+  <meta property="og:url" content="https://sidmarketing-products.vercel.app/" />
+  <meta property="og:title" content="SidMarkting Products | Afiliado de Produtos Físicos" />
+  <meta property="og:description" content="Produtos físicos com qualidade comprovada. Preços reais, sem enganação." />
+  <meta property="og:image" content="/loja.gif" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SidMarkting Products | Afiliado de Produtos Físicos" />
+  <meta name="twitter:description" content="Produtos físicos com qualidade comprovada. Preços reais, sem enganação." />
+  <meta name="twitter:image" content="/loja.gif" />
 
-  display: block<!-- Produto 10 -->
-<div class="product-card">
-  <div class="product-img">
-    <img src="/P10-morovitta.png" alt="Moro Vitta">
-  </div>
-  <div class="product-info">
-    <h3>Moro Vitta</h3>
-    <p>Vitamina D3 + K2 para imunidade.</p>
-    <div class="product-price">R$ 227,00</div>
-    <a href="https://www.makepages.com.br/r/AUZ25769534" class="btn btn-comprar" target="_blank">Comprar</a>
-    <button class="btn btn-compartilhar" onclick="shareProduct('Moro Vitta', 'R$ 227,00', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
-  </div>
-</div><!-- Produto 10 -->
-<div class="product-card">
-  <div class="product-img">
-    <img src="/P10-morovitta.png" alt="Moro Vitta">
-  </div>
-  <div class="product-info">
-    <h3>Moro Vitta</h3>
-    <p>Vitamina D3 + K2 para imunidade.</p>
-    <div class="product-price">R$ 227,00</div>
-    <a href="https://www.makepages.com.br/r/AUZ25769534" class="btn btn-comprar" target="_blank">Comprar</a>
-    <button class="btn btn-compartilhar" onclick="shareProduct('Moro Vitta', 'R$ 227,00', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
-  </div>
-</div>
-}
-
-
-  <!-- Seu CSS -->
-  <link rel="stylesheet" href="/css/barra.css">
   <style>
-    /* ... seu CSS aqui ... */
-  </style>
-  </head>
-  <title>SidMarkting Products | Afiliado de Produtos Físicos</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #1a1a1a;
@@ -58,10 +30,9 @@
       line-height: 1.6;
     }
 
-    /* Cabeçalho */
     .header {
       text-align: center;
-      padding: 40px 20px;
+      padding: 20px;
       background: #0d0d0d;
     }
     .header img {
@@ -82,7 +53,6 @@
       margin: 0 auto;
     }
 
-    /* Termo de responsabilidade */
     .termo {
       text-align: center;
       padding: 15px;
@@ -92,7 +62,6 @@
       border-top: 1px solid #333;
     }
 
-    /* Grid de produtos */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -108,7 +77,6 @@
       border-radius: 12px;
       overflow: hidden;
       transition: all 0.3s ease;
-      position: relative;
     }
     .product-card:hover {
       box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.6);
@@ -149,7 +117,6 @@
       margin-bottom: 20px;
     }
 
-    /* Botões */
     .btn {
       display: block;
       width: 100%;
@@ -182,7 +149,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
-    /* Rodapé */
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -191,7 +157,6 @@
       font-size: 0.9rem;
     }
 
-    /* Responsivo */
     @media (max-width: 768px) {
       .products-grid {
         grid-template-columns: 1fr;
@@ -200,22 +165,31 @@
       .product-card { margin: 0 auto; max-width: 320px; }
     }
   </style>
+
+  <script>
+    function shareProduct(name, price, siteUrl) {
+      const text = `Olá! Encontrei este produto: ${name} — ${price}. Vale a pena!`;
+      if (navigator.share) {
+        navigator.share({ title: name, text, url: siteUrl });
+      } else {
+        const encodedText = encodeURIComponent(text);
+        window.open(`https://wa.me/?text=${encodedText}`, '_blank');
+      }
+    }
+  </script>
 </head>
 <body>
 
-  <!-- Cabeçalho -->
   <div class="header">
     <img src="/loja.gif" alt="Sidnei na loja de produtos SidMarkting">
     <h1>SIDMARKTING PRODUCTS</h1>
     <p>MARKTING DE AFILIADO</p>
   </div>
 
-  <!-- Termo de responsabilidade -->
   <div class="termo">
     Este site é um afiliado de produtos físicos. A responsabilidade pela qualidade, garantia e entrega dos produtos é do produtor. Nossa função é apresentar produtos que resolvem problemas reais. Preços sujeitos a alterações pelo produtor.
   </div>
 
-  <!-- Produtos -->
   <div class="products-grid">
     <!-- Produto 1 -->
     <div class="product-card">
@@ -227,24 +201,23 @@
         <p>Suplemento para energia e foco.</p>
         <div class="product-price">R$ 167,00</div>
         <a href="https://app.monetizze.com.br/r/ARN25765645" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Durasul', 'R$ 167,00', 'https://app.monetizze.com.br/r/ARN25765645')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Durasul', 'R$ 167,00', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
       </div>
     </div>
 
-    <!-- Produto 10 -->
-    <!-- Produto 10 -->
-<div class="product-card">
-  <div class="product-img">
-    <img src="/P10-morovitta.png" alt="Moro Vitta">
-  </div>
-  <div class="product-info">
-    <h3>Moro Vitta</h3>
-    <p>Vitamina D3 + K2 para imunidade.</p>
-    <div class="product-price">R$ 227,00</div>
-    <a href="https://www.makepages.com.br/r/AUZ25769534" class="btn btn-comprar" target="_blank">Comprar</a>
-    <button class="btn btn-compartilhar" onclick="shareProduct('Moro Vitta', 'R$ 227,00', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
-  </div>
-</div>
+    <!-- Produto 2 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="/P10-morovitta.png" alt="Moro Vitta">
+      </div>
+      <div class="product-info">
+        <h3>Moro Vitta</h3>
+        <p>Vitamina D3 + K2 para imunidade.</p>
+        <div class="product-price">R$ 227,00</div>
+        <a href="https://www.makepages.com.br/r/AUZ25769534" class="btn btn-comprar" target="_blank">Comprar</a>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Moro Vitta', 'R$ 227,00', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
+      </div>
+    </div>
 
     <!-- Produto 3 -->
     <div class="product-card">
@@ -256,7 +229,7 @@
         <p>Colágeno hidrolisado com vitamina C.</p>
         <div class="product-price">R$ 49,90</div>
         <a href="https://www.makepages.com.br/r/AWY25769512" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Nutra Vida', 'R$ 49,90', 'https://www.makepages.com.br/r/AWY25769512')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Nutra Vida', 'R$ 49,90', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
       </div>
     </div>
 
@@ -270,21 +243,21 @@
         <p>Colágeno marinho + ácido hialurônico.</p>
         <div class="product-price">R$ 79,90</div>
         <a href="https://www.makepages.com.br/r/AAV25769391" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Dream Colageno', 'R$ 79,90', 'https://www.makepages.com.br/r/AAV25769391')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Dream Colageno', 'R$ 79,90', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
       </div>
     </div>
 
     <!-- Produto 5 -->
     <div class="product-card">
       <div class="product-img">
-        <img src="/P5-moujaslim.png" alt="Mouja Slim">
+        <img src="/P5-moujasim.png" alt="Mouja Sim">
       </div>
       <div class="product-info">
-        <h3>Mouja Slim</h3>
+        <h3>Mouja Sim</h3>
         <p>Termogênico natural para emagrecimento.</p>
         <div class="product-price">R$ 39,90</div>
         <a href="https://www.makepages.com.br/r/ADE25765870" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Mouja Slim', 'R$ 39,90', 'https://www.makepages.com.br/r/ADE25765870')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Mouja Sim', 'R$ 39,90', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
       </div>
     </div>
 
@@ -298,7 +271,7 @@
         <p>L-Tirosina + CAFEÍNA para foco.</p>
         <div class="product-price">R$ 89,90</div>
         <a href="https://www.makepages.com.br/r/APC25766093" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Memorizen', 'R$ 89,90', 'https://www.makepages.com.br/r/APC25766093')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Memorizen', 'R$ 89,90', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
       </div>
     </div>
 
@@ -312,7 +285,7 @@
         <p>Estimulante natural para desempenho.</p>
         <div class="product-price">R$ 64,90</div>
         <a href="https://app.monetizze.com.br/r/ARQ25766636" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Libid Intense', 'R$ 64,90', 'https://app.monetizze.com.br/r/ARQ25766636')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Libid Intense', 'R$ 64,90', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
       </div>
     </div>
 
@@ -326,7 +299,7 @@
         <p>Café verde + Garcinia para energia.</p>
         <div class="product-price">R$ 44,90</div>
         <a href="https://app.monetizze.com.br/r/AHF25766174" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('GH Coffee', 'R$ 44,90', 'https://app.monetizze.com.br/r/AHF25766174')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('GH Coffee', 'R$ 44,90', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
       </div>
     </div>
 
@@ -340,12 +313,11 @@
         <p>Kit completo para saúde intestinal.</p>
         <div class="product-price">R$ 99,90</div>
         <a href="https://app.monetizze.com.br/r/AMK25766629" class="btn btn-comprar" target="_blank">Comprar</a>
-        <button class="btn btn-compartilhar" onclick="shareProduct('Nutral Fit', 'R$ 99,90', 'https://app.monetizze.com.br/r/AMK25766629')">Compartilhar</button>
+        <button class="btn btn-compartilhar" onclick="shareProduct('Nutral Fit', 'R$ 99,90', 'https://sidmarketing-products.vercel.app/')">Compartilhar</button>
       </div>
     </div>
   </div>
 
-  <!-- Rodapé -->
   <footer>
     © 2026 SidMarkting. Todos os direitos reservados.  
     <div style="margin-top: 10px;">
@@ -353,25 +325,5 @@
       <a href="https://wa.me/5521988663114" target="_blank" style="color:#00C853; margin:0 12px;">WhatsApp</a>
     </div>
   </footer>
-
-  <!-- Compartilhamento -->
-  <script>
-  function shareProduct(name, price, siteUrl) {
-    const text = `Olá! Encontrei este produto: ${name} — ${price}. Vale a pena!`;
-    
-    if (navigator.share) {
-      // Só o siteUrl vai como link — NÃO entra no texto
-      navigator.share({
-        title: name,
-        text: text,
-        url: siteUrl
-      });
-    } else {
-      // Para WhatsApp: só o texto (sem URL duplicada)
-      const encodedText = encodeURIComponent(text);
-      window.open(`https://wa.me/?text=${encodedText}`, '_blank');
-    }
-  }
-  </script>
 </body>
 </html>
