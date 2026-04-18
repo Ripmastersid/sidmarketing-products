@@ -1,0 +1,43 @@
+{
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/p1",
+      "dest": "/?product=p1"
+    },
+    {
+      "src": "/p2",
+      "dest": "/?product=p2"
+    },
+    {
+      "src": "/p3",
+      "dest": "/?product=p3"
+    },
+    {
+      "src": "/p4",
+      "dest": "/?product=p4"
+    },
+    {
+      "src": "/p5",
+      "dest": "/?product=p5"
+    },
+    {
+      "src": "/p6",
+      "dest": "/?product=p6"
+    },
+    {
+      "src": "/p7",
+      "dest": "/?product=p7"
+    },
+    {
+      "src": "/p8",
+      "dest": "/?product=p8"
+    },
+    {
+      "src": "/p9",
+      "dest": "/?product=p9"
+    }
+  ]
+}
