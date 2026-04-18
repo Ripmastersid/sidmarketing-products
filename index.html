@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SidMarkting Products | Afiliado de Produtos Físicos</title>
 
-  <!-- Meta tags padrão (serão atualizadas pelo JS se ?product= existir) -->
+  <!-- Meta tags padrão (serão atualizadas pelo JS) -->
   <meta property="og:url" content="https://sidmarketing-products.vercel.app/" />
   <meta property="og:title" content="SidMarkting Products | Afiliado de Produtos Físicos" />
   <meta property="og:description" content="Produtos físicos com qualidade comprovada. Preços reais, sem enganação." />
@@ -167,7 +167,7 @@
   </style>
 
   <script>
-    // Atualiza meta tags se ?product=p1, p2, etc.
+    // Atualiza meta tags com URL completo
     document.addEventListener('DOMContentLoaded', () => {
       const url = new URL(window.location);
       const product = url.searchParams.get('product');
@@ -175,15 +175,15 @@
       if (!product) return;
 
       const map = {
-        'p1': { title: 'Durasul', image: '/P1-durasul.png' },
-        'p2': { title: 'Moro Vitta', image: '/P10-morovitta.png' },
-        'p3': { title: 'Nutra Vida', image: '/P3-nutravida.png' },
-        'p4': { title: 'Dream Colageno', image: '/P4-dreamcolageno.png' },
-        'p5': { title: 'Mouja Slim', image: '/P5-moujaslim.png' }, // ✅ Corrigido!
-        'p6': { title: 'Memorizen', image: '/P6-memorizen.png' },
-        'p7': { title: 'Libid Intense', image: '/P7-libidintense.png' },
-        'p8': { title: 'GH Coffee', image: '/P8-ghcoffee.png' },
-        'p9': { title: 'Nutral Fit', image: '/P9-nutralfit.png' }
+        'p1': { title: 'Durasul', image: 'https://sidmarketing-products.vercel.app/P1-durasul.png' },
+        'p2': { title: 'Moro Vitta', image: 'https://sidmarketing-products.vercel.app/P10-morovitta.png' },
+        'p3': { title: 'Nutra Vida', image: 'https://sidmarketing-products.vercel.app/P3-nutravida.png' },
+        'p4': { title: 'Dream Colageno', image: 'https://sidmarketing-products.vercel.app/P4-dreamcolageno.png' },
+        'p5': { title: 'Mouja Slim', image: 'https://sidmarketing-products.vercel.app/P5-moujaslim.png' },
+        'p6': { title: 'Memorizen', image: 'https://sidmarketing-products.vercel.app/P6-memorizen.png' },
+        'p7': { title: 'Libid Intense', image: 'https://sidmarketing-products.vercel.app/P7-libidintense.png' },
+        'p8': { title: 'GH Coffee', image: 'https://sidmarketing-products.vercel.app/P8-ghcoffee.png' },
+        'p9': { title: 'Nutral Fit', image: 'https://sidmarketing-products.vercel.app/P9-nutralfit.png' }
       };
 
       const data = map[product] || map['p1'];
@@ -275,7 +275,7 @@
       </div>
     </div>
 
-    <!-- Produto 5 — CORRIGIDO -->
+    <!-- Produto 5 — Mouja Slim (corrigido) -->
     <div class="product-card" id="p5">
       <div class="product-img">
         <img src="/P5-moujaslim.png" alt="Mouja Slim">
